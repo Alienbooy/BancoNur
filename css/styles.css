@@ -2,137 +2,116 @@
    BANCO NUR – Diseño Moderno 2x2 (Optimizado para iPad)
    ============================================================ */
 
-/* ---------- Variables de color y sombras ---------- */
-:root {
-  --bn-bg1: #39A9FF;     /* azul banco brillante */
-  --bn-bg2: #1976d2;     /* azul profundo */
-  --bn-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-  --bn-shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.25);
+/* ---------- Variables ---------- */
+:root{
+  --bn-bg1:#39A9FF;
+  --bn-bg2:#1976d2;
+  --bn-shadow:0 10px 20px rgba(0,0,0,.25);
+  --bn-shadow-lg:0 20px 40px rgba(0,0,0,.25);
 }
 
-/* ---------- Base general ---------- */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+/* ---------- Base ---------- */
+html,body{height:100%;margin:0;padding:0;}
+/* iOS: evita auto-zoom/auto-resize de texto */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+
+body{
+  background:linear-gradient(160deg,var(--bn-bg1),var(--bn-bg2));
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color:#fff;
 }
 
-body {
-  background: linear-gradient(160deg, var(--bn-bg1), var(--bn-bg2));
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  color: #fff;
+/* ---------- Marca ---------- */
+.brand{display:flex;flex-direction:column;align-items:center;gap:.25rem;}
+.brand img{max-height:72px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.25));}
+.brand-title{
+  font-weight:800; letter-spacing:.06em;
+  text-shadow:0 4px 18px rgba(0,0,0,.25);
+  font-size:clamp(2rem,2.8rem + 0.5vw,3rem);
 }
 
-/* ---------- Encabezado ---------- */
-.brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: .25rem;
-}
-.brand img {
-  max-height: 72px;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,.25));
-}
-.brand-title {
-  font-weight: 800;
-  letter-spacing: .06em;
-  text-shadow: 0 4px 18px rgba(0, 0, 0, .25);
-  font-size: clamp(2rem, 2.8rem + 0.5vw, 3rem);
-}
-
-.text-white{
-    padding: 0;
-}
-
-p {
-    margin: 0;
-    margin-bottom: 0;
-}
+/* Limpieza de <p> sueltos */
+p{margin:0 0 0 0;}
 
 /* ---------- Contenedor principal ---------- */
-.shell {
-  max-width: 900px;
-  width: 100%;
-}
+.shell{max-width:900px;width:100%;}
 
-/* ---------- Píldoras ---------- */
-.btn-pill {
-  border: none !important;
-  border-radius: 28px !important;
-  padding: 16px 24px !important;
-  font-size: 1.15rem !important;
-  font-weight: 800 !important;
-  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-  text-align: center;
-  white-space: normal;
+/* ---------- Botones píldora ---------- */
+.btn-pill{
+  border:none !important;
+  border-radius:28px !important;
+  padding:16px 24px !important;
+  font-size:1.15rem !important;
+  font-weight:800 !important;
+  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  text-align:center; white-space:normal;
 }
-.btn-light-pill {
-  background: #e6e6e6 !important;
-  color: #111 !important;
-  box-shadow: var(--bn-shadow) !important;
-}
-.btn-light-pill:hover {
-  filter: brightness(1.05);
-  transform: translateY(-3px);
-  box-shadow: var(--bn-shadow-lg) !important;
-}
-.btn-light-pill:active { transform: translateY(0) scale(0.98); }
+.btn-light-pill{background:#e6e6e6 !important;color:#111 !important;box-shadow:var(--bn-shadow) !important;}
+.btn-light-pill:hover{filter:brightness(1.05);transform:translateY(-3px);box-shadow:var(--bn-shadow-lg) !important;}
+.btn-light-pill:active{transform:translateY(0) scale(.98);}
 
-/* Tamaño uniforme (≈284×100 en iPad) */
-.pill-size {
-  width: clamp(260px, 42vw, 300px);
-  min-height: 96px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1.2;
-  text-align: center;
+/* Tamaño visual uniforme */
+.pill-size{
+  width:clamp(260px,42vw,300px);
+  min-height:96px;
+  display:inline-flex; align-items:center; justify-content:center;
+  line-height:1.2; text-align:center;
 }
 
 /* ---------- Footer ---------- */
-.site-footer { color: rgba(255, 255, 255, .75); }
+.site-footer{color:rgba(255,255,255,.75);}
 
 /* ============================================================
    Distribución 2×2 (dos a la izquierda, dos a la derecha)
    ============================================================ */
 
-/* Pilas izquierda/derecha con separación vertical */
-.left-stack, .right-stack { gap: 2.2rem; }
+/* Pilas izquierda/derecha SIEMPRE en columna */
+.left-stack,.right-stack{
+  display:flex; flex-direction:column;
+  align-items:center;               /* centrado visual */
+  gap:2rem;
+}
 
-/* Desde iPad (>=768px): dos columnas.
-   Izquierda alineada a la derecha y derecha a la izquierda
-   para abrir espacio central, como en tu mock. */
-@media (min-width: 768px){
-  .row.shell {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    column-gap: 3.5rem;   /* espacio entre columnas */
+/* Mantener separación entre columnas */
+@media (min-width:768px){
+  .row.shell{
+    display:flex; justify-content:center; align-items:flex-start;
+    column-gap:3.5rem;
   }
-  .left-stack  { align-items: flex-end; }
-  .right-stack { align-items: flex-start; }
-  .pill-size   { width: 300px; min-height: 96px; }
+}
+
+/* Unificar comportamiento de <a> y <button> en iOS */
+.btn.btn-pill.pill-size{
+  display:inline-flex; align-items:center; justify-content:center;
+  -webkit-appearance:none; appearance:none;
+  white-space:normal; word-break:keep-all; line-height:1.2;
+}
+
+/* iPad portrait/landscape: ancho estable */
+@media (min-width:768px){
+  .pill-size{ width:300px !important; min-height:96px; }
+}
+@media (orientation:landscape) and (min-width:768px){
+  .pill-size{ width:320px !important; }
 }
 
 /* Ajustes en iPad y medianas */
-@media (max-width: 1024px) {
-  .shell { max-width: 820px; }
-  .brand img { max-height: 60px; }
-  .brand-title { font-size: 2.3rem; }
-  .pill-size { width: clamp(240px, 44vw, 300px); min-height: 90px; }
+@media (max-width:1024px){
+  .shell{max-width:820px;}
+  .brand img{max-height:60px;}
+  .brand-title{font-size:2.3rem;}
+  .pill-size{min-height:90px;}
 }
 
 /* iPad mini */
-@media (max-width: 834px) {
-  .shell { max-width: 720px; }
-  .brand-title { font-size: 2rem; }
+@media (max-width:834px){
+  .shell{max-width:720px;}
+  .brand-title{font-size:2rem;}
 }
 
-/* Móviles chicos: todo apilado al centro y ancho completo */
-@media (max-width: 767.98px){
-  .row.shell { flex-direction: column; align-items: center; }
-  .left-stack, .right-stack { align-items: center; }
-  .pill-size { width: 100%; min-height: 84px; }
-  .brand-title { font-size: 1.8rem; }
+/* Móviles chicos: apilar ancho completo */
+@media (max-width:767.98px){
+  .row.shell{flex-direction:column; align-items:center;}
+  .pill-size{width:100% !important; min-height:84px;}
+  .brand-title{font-size:1.8rem;}
 }
