@@ -1,0 +1,12 @@
+{
+  "name": "banco-nur-frontend",
+  "version": "1.0.0",
+  "description": "Frontend estático para Banco NUR - tickets",
+  "scripts": {
+    "start": "node app.js",
+    "serve": "node app.js",
+    "open": "powershell -Command Start-Process http://localhost:3000/index.html"
+  },
+  "author": "",
+  "license": "MIT"
+}

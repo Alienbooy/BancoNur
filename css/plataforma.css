@@ -1,0 +1,106 @@
+/* ============================================================
+   BANCO NUR – Estilo de la página PLATAFORMA
+   ============================================================ */
+
+/* Fondo y tipografía general */
+body {
+  background: linear-gradient(160deg, #39A9FF, #1976d2);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Encabezado */
+header img {
+  max-height: 70px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
+}
+
+header h1 {
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.25);
+  margin-top: 0.5rem;
+}
+
+header h4 {
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  margin-top: 0.5rem;
+}
+
+/* Contenedor principal */
+section {
+  width: 100%;
+  max-width: 480px;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Botones principales */
+.ticket-btn {
+  background: #ffffff;
+  color: #0d47a1;
+  font-weight: 700;
+  border: none;
+  border-radius: 20px;
+  width: 100%;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover y Active */
+.ticket-btn:hover {
+  transform: translateY(-3px);
+  background: #f3f8ff;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+}
+
+.ticket-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Espaciado entre botones */
+.row.g-4 .col-12 {
+  display: flex;
+  justify-content: center;
+}
+
+/* Botón “Volver” */
+a.btn {
+  background: #111;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 10px 28px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-light{
+    background: #f1f1f1;
+    color: #111;
+}
+a.btn:hover {
+  background: #222;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  color: rgba(255,255,255,0.75);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  section { max-width: 360px; }
+  .ticket-btn { font-size: 1rem; padding: 12px 0; }
+}
